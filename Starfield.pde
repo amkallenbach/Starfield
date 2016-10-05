@@ -14,10 +14,7 @@ void setup()
 	{
 		cluster[j] = new NormalParticle();
 	}
-	// for (int j = 0; j < cluster.length/4; j++)
-	// {
-	// 	cluster[j] = new OddballParticle();
-	// }
+	
 	for (int j = 0; j < cluster.length/2; j++)
 	{
 		cluster[j] = new FireWork();
@@ -25,6 +22,10 @@ void setup()
 	for (int j = 0; j < cluster.length/4; j++)
 	{
 		cluster[j] = new OddballParticle();
+	}
+	for (int j = 0; j < cluster.length/6; j++)
+	{
+		cluster[j] = new FireWork2();
 	}
 	cluster[cluster.length-1] = new JumboParticle();
 
@@ -52,10 +53,6 @@ void mousePressed()
 	{
 		cluster[j] = new NormalParticle();
 	}
-	// for (int j = 0; j < cluster.length/4; j++)
-	// {
-	// 	cluster[j] = new OddballParticle();
-	// }
 	for (int j = 0; j < cluster.length/2; j++)
 	{
 		cluster[j] = new FireWork();
@@ -63,6 +60,10 @@ void mousePressed()
 	for (int j = 0; j < cluster.length/4; j++)
 	{
 		cluster[j] = new OddballParticle();
+	}
+	for (int j = 0; j < cluster.length/6; j++)
+	{
+		cluster[j] = new FireWork2();
 	}
 	cluster[cluster.length-1] = new JumboParticle();
 }
@@ -141,12 +142,35 @@ class OddballParticle implements Particle //uses an interface
 		rect((float)myX, (float)myY, 3, 3);
 	}
 }
+class FireWork2 implements Particle
+{
+	double myX, myY,dSpeed, dDirection;
+
+	FireWork2()
+	{
+		myX = mouseY-150;
+		myY = mouseX-150;
+		dSpeed = (Math.random()*5);
+		dDirection = (Math.random()*2*Math.PI);
+	}
+	public void move()
+	{
+		myX += dSpeed*Math.cos(dDirection);
+		myY += dSpeed*Math.sin(dDirection);
+	}
+	public void show()
+	{
+		fill(153,197,229);
+		ellipse((float)myX, (float)myY, 7,7);
+	}
+}
 class JumboParticle extends NormalParticle //uses inheritance
 {
 		public void show()
 	{
-		fill(255);
-		ellipse((float)myX, (float)myY, 9,9);
+		fill(102,102,182);
+		rect((float)myX, (float)myY, 10,10,3);
+		
 	}
 }
 
