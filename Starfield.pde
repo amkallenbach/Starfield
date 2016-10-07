@@ -1,5 +1,3 @@
-// NormalParticle p1 = new NormalParticle();
-// NormalParticle [] cluster;
 
 Particle [] cluster;
 
